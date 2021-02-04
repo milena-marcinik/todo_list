@@ -23,3 +23,6 @@ urlpatterns = [
     path('todo/', include('todo.urls')),
 
 ]
+
+
+#zmiana
