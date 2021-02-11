@@ -1,0 +1,18 @@
+{% extends 'todo/base.html' %}
+
+{% block "content" %}
+<div class="todo-box">
+     <div class="todo-title"> <h2> {{ object.day_date|date:"Y-m-d" }} <a href="{% url 'task-create' %}"><i class="material-icons">add</i></a></h2> </div>
+       <table style="width:100%;padding-right:10px;">
+           {% for task in object.task_set.all %}
+                <tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; "> {{ task.title }} </td>
+                    <td <i class="material-icons">edit</i></td>
+                    <td> <i class="material-icons">check</i></td>
+                    <td><i class="material-icons">clear</i> </td>
+                </tr>
+           {% endfor %}
+       </table>
+</div>
+</div>
+{% endblock %}

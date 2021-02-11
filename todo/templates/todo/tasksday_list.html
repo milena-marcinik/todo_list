@@ -1,0 +1,14 @@
+{% extends 'todo/base.html' %}
+
+{% block "content" %}
+<h1> Lista TODO</h1>
+
+<div>
+    <a href="{% url 'tasksday-create' %}"> Dodaj nową listę TODO </a>
+
+</div>
+{% for i in  object_list %}
+{{ i.day_date }} <a href="{% url 'taksday-detail' i.id %}"> Zobacz </a> <br>
+{% endfor %}
+
+{% endblock %}

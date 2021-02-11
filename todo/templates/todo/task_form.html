@@ -1,0 +1,11 @@
+{% extends 'todo/base.html' %}
+{% block "content" %}
+<form action="" method="post">
+    <table class="form-table">
+        {% csrf_token %}
+        {{ form }}
+        <tr><td></td><td><input type="submit"  value="Dodaj"</td></tr>
+    </table>
+
+</form>
+{% endblock %}

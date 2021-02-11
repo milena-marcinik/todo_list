@@ -1,33 +1,79 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TODO</title>
-    <link href="{% static 'todo/styles/style.css' %}" rel="stylesheet" type="text/css">
-</head>
-<body>
+<! DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Moja lista todo </title>
+        <link href="{% static 'todo/style.css' %}" rel="stylesheet" type="text/css">
+       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
 
-<h1>My To-Do List</h1>
+    <body>
+   <i class="material-icons">edit</i>
+    <i class="material-icons">check</i>
+    <i class="material-icons">clear</i>
+    <i class="material-icons">add</i>
+    <div id="wrapper">
+        <div id="header">
+            {% block "header" %}
+               <h1> To jest moja lista To-Do </h1>
+            {% endblock %}
+        </div>
+        <div id="content-wrapper">
+            <div id="left-sidebar">
+                {% block "main_menu" %}
+              <ul class="menu-list">
+              <li> pozycja 1</span></li>
+              <li> pozycja 2</li>
+              <li> pozycja 3</li>
+              </ul>
+                {% endblock %}
+            </div>
+            <div id="main-content">
+                {% block "content" %}
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis erat arcu. Phasellus bibendum ut ex at iaculis. Duis facilisis, nulla finibus congue consectetur, massa massa iaculis lectus, nec faucibus arcu dolor quis lorem. Curabitur at placerat nisi. Morbi ac cursus leo. Morbi a velit molestie, elementum ipsum ac, molestie urna. Praesent porta eros vel consequat hendrerit. Fusce ornare, ligula ut molestie cursus, risus massa imperdiet magna, sed venenatis tellus arcu quis libero.
 
-<ul>
-    {% for item in all_items %}
-        <li>{{ item.do_name }} <br> {{ item.do_date }}</li>
-        <form class="inline-form" action="{% url 'delete_todo' item.id %}"
-              style="display: inline"
-              method="post"> {% csrf_token %}
-            <input type="submit" value="Delete">
-        </form>
+Morbi est mauris, auctor a justo nec, feugiat fermentum dolor. Aliquam elementum lorem elit, vitae volutpat augue accumsan non. Nullam porttitor ac dolor vel ultricies. Phasellus at lacinia enim. Nullam lobortis quam a diam feugiat ultricies. In hac habitasse platea dictumst. Curabitur blandit lectus porttitor eros bibendum ultrices. Suspendisse placerat velit aliquam cursus eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non finibus orci, eu vulputate nisl. Ut tempor gravida pharetra. Nam eleifend, risus eget imperdiet laoreet, urna lectus sollicitudin eros, quis euismod nibh augue vitae eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse eu congue nisl. Quisque dapibus nulla suscipit turpis sagittis commodo.
 
-    {% endfor %}
-</ul>
+Sed eu porta dui. Praesent tristique nisl odio, eget commodo purus semper sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed tellus vehicula, egestas elit consequat, faucibus nibh. Aliquam ultricies sem nec turpis efficitur rhoncus. Praesent scelerisque nunc quis bibendum vulputate.
 
-<form action="{% url 'add_todo' %}" method="post">{% csrf_token %}
-    <h4>Add new item</h4>
-    <input type="text" name="do_name"/>
-    <input type="datetime-local" name="do_date"/>
-    <input type="submit" value="Add">
-</form>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed elit leo. Quisque eu nibh vestibulum, egestas augue vitae, maximus lectus. Ut quis pellentesque lorem, id varius urna. Vivamus vulputate ligula urna, at lobortis ante suscipit ut. Etiam eget sagittis tellus. Curabitur ac mi sit amet metus interdum finibus interdum ac nisi. Curabitur sed tempus risus, id mollis lacus.
 
-</body>
+
+            <div class="todo-box">
+              <div class="todo-title"> <h2>11-12-2021 Poniedziałek</h2> </div>
+              <table style="width:100%;padding-right:10px;">
+                <tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; ">Krótki opis zadania</td>
+                    <td ></td> <td> D </td> <td> Z</td>
+                </tr>
+                <tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; ">Krótki opis zadania</td>
+                    <td > E </td> <td> D </td> <td> Z</td>
+                </tr>
+                <tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; ">Krótki opis zadania</td>
+                    <td > E </td> <td> D </td> <td> Z</td>
+                </tr>
+<tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; ">Krótki opis zadania</td>
+                    <td > E </td> <td> D </td> <td> Z</td>
+                </tr>
+<tr>
+                    <td style="width:80%; border-left:3px solid green; padding-left:10px; ">Krótki opis zadania</td>
+                    <td > E </td> <td> D </td> <td> Z</td>
+                </tr>
+
+              </table>
+            </div>
+
+            {% endblock %}
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div id="footer">
+        <p> Moja lista todo - taki sobie footer</p>
+        </div>
+    </div>
+    </body>
 </html>

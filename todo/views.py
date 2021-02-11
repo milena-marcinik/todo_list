@@ -9,7 +9,7 @@ from todo.models import TodoItem
 
 def todo_view(request):
     all_todo_items = TodoItem.objects.all()
-    return render(request, 'todo/base.html', {'all_items': all_todo_items})
+    return render(request, 'todo/do_list.html', {'all_items': all_todo_items})
 
 
 def add_todo(request):
