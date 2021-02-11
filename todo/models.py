@@ -1,11 +1,11 @@
-from django.core.exceptions import ValidationError
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
 
 class TasksDay(models.Model):
-    day_date = models.DateField(unique=True)
+    day_date = models.DateField()
     owner = models.ForeignKey('auth.User', on_delete=models.PROTECT)
 
     class Meta:
